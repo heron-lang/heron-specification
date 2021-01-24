@@ -12,12 +12,12 @@
 <quote> ::= "'" | "\""
 <string> ::=  <quote> <any> <quote>
 
-<import> ::= "@import" <string> <EOS>
+<importRule> ::= "@import" <string> <EOS>
 
 <property> ::= <identifier> ":" <identifier> <EOS>
 <content> ::= (<property> | <styleRule>) | <content> (<property> | <rule>)
 
 <styleRule> ::= <identifier> "{" <content> | <styleRule> "}"
 
-<rule> ::= <import> | <styleRule>
+<rule> ::= <importRule> | <styleRule>
 <stylesheet> ::= <rule> | <stylesheet> <rule>

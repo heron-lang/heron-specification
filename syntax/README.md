@@ -52,7 +52,7 @@ this represent any character that belongs to an identifier
 ## Import
 
 ```
-<import> ::= "@import" <string> <EOS>
+<importRule> ::= "@import" <string> <EOS>
 ```
 
 # Rules
@@ -73,7 +73,7 @@ this represent any character that belongs to an identifier
 ## Rule
 
 ```
-<rule> ::= <import> | <styleRule>
+<rule> ::= <importRule> | <styleRule>
 ```
 
 ## Stylesheet
