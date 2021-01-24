@@ -32,7 +32,7 @@
 <identifier> ::= <identifierCharacter> | <identifier> <identifierCharacter>
 ```
 
-this represent any character that belongs to an identifier
+This represents any character that belongs to an identifier.
 
 ## Character
 
@@ -40,6 +40,8 @@ this represent any character that belongs to an identifier
 <character> ::= <identifierCharacter> | "@" | "$" | "^" | "&" | "=" | "{" | "}" | "?" | ">" | "<" | "," | "`" | "~" | "[" | "]" | ";" | " " | "\n"
 <any> ::= <character> | <any> <character>
 ```
+
+This just helps represent *any* character.
 
 ## Strings
 
@@ -65,10 +67,22 @@ this represent any character that belongs to an identifier
 <content> ::= (<property> | <styleRule>) | <content> (<property> | <rule>)
 ```
 
+["Property"](#property) represents a style characteristic that applies to a rule.
+["Content"](#property) represents the inner-contents of a ["styleRule"](#a-style-rule). It is meant to support a style property or a style rule. This allows for rule nesting.
+
 ## A Style Rule
 
 ```
 <styleRule> ::= <identifier> "{" <content> | <styleRule> "}"
+```
+
+This represents a style rule, it wraps [properties](#property) that apply to a HTML elements.
+
+Example:
+```css
+p {
+  color: red;
+}
 ```
 
 ## Rule
@@ -77,8 +91,12 @@ this represent any character that belongs to an identifier
 <rule> ::= <importRule> | <styleRule>
 ```
 
+["Rule"](#rule) is a general definition that includes an ["importRule"](#import) and a ["styleRule"](#a-style-rule).
+
 ## Stylesheet
 
 ```
 <stylesheet> ::= <rule> | <stylesheet> <rule>
 ```
+
+["Stylesheet"](#stylesheet) just wraps all of the rules.
